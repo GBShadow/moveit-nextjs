@@ -8,6 +8,7 @@ import Profile from '../components/Profile';
 import CompletedChallenges from '../components/CompletedChallenges';
 import Countdown from '../components/Countdown';
 import ChallengerBox from '../components/ChallengerBox';
+import { CountdownProvider } from '../hooks/Countdown';
 
 const Home: React.FC = () => {
   return (
@@ -20,16 +21,18 @@ const Home: React.FC = () => {
         <S.Container>
           <ExperienceBar />
 
-          <section>
-            <S.LeftContainer>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </S.LeftContainer>
-            <S.RightContainer>
-              <ChallengerBox />
-            </S.RightContainer>
-          </section>
+          <CountdownProvider>
+            <section>
+              <div>
+                <Profile />
+                <CompletedChallenges />
+                <Countdown />
+              </div>
+              <div>
+                <ChallengerBox />
+              </div>
+            </section>
+          </CountdownProvider>
         </S.Container>
       </main>
     </div>

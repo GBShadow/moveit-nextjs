@@ -27,6 +27,7 @@
   ],
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "no-new": "off",
     "arrow-body-style": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",

@@ -1,14 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 
 import LevelUpIcon from '../assets/icons/level-up.svg';
 import BodyIcon from '../assets/icons/body.svg';
 import EyeIcon from '../assets/icons/eye.svg';
 
-import * as S from '../styles/components/ChallengerBox';
 import { ChallengesContext } from '../hooks/Challenges';
+import { CountdownContext } from '../hooks/Countdown';
+
+import * as S from '../styles/components/ChallengerBox';
 
 const ChallengerBox: React.FC = () => {
-  const { activeChallenge, resetChallenge } = useContext(ChallengesContext);
+  const { activeChallenge, resetChallenge, completedChallenge } = useContext(ChallengesContext);
+  const { resetCountdown } = useContext(CountdownContext);
+
+  const handleChallengeSucceeded = useCallback(() => {
+    completedChallenge();
+    resetCountdown();
+  }, [resetCountdown, completedChallenge]);
+
+  const handleChallengeFailed = useCallback(() => {
+    resetChallenge();
+    resetCountdown();
+  }, [resetChallenge, resetCountdown]);
 
   return (
     <S.Container>
@@ -33,11 +46,15 @@ const ChallengerBox: React.FC = () => {
           </main>
           <footer>
             <S.ChallengerFailedButton
-              onClick={resetChallenge}
+              onClick={handleChallengeFailed}
             >
               Falhei
             </S.ChallengerFailedButton>
-            <S.ChallengerSucceededButton>Completei</S.ChallengerSucceededButton>
+            <S.ChallengerSucceededButton
+              onClick={handleChallengeSucceeded}
+            >
+              Completei
+            </S.ChallengerSucceededButton>
           </footer>
         </S.ChallengerActive>
       ) : (
