@@ -26,8 +26,10 @@
       "@typescript-eslint"
   ],
   "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "arrow-body-style": "off",
     "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "no-use-before-define": "off",
     "react-hooks/rules-of-hooks": "error",

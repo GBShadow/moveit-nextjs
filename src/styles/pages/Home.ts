@@ -4,7 +4,7 @@ export const Container = styled.div`
   max-width: 992px;
   height: 100vh;
   margin: 0 auto;
-  padding: 2.5rem 2rem;
+  padding: 2rem 2rem;
 
   display: flex;
   flex-direction: column;
@@ -12,9 +12,17 @@ export const Container = styled.div`
   section {
     flex: 1;
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6.25rem;
+    align-content: center;
+    margin-top: 2.5rem;
   }
 `;
 
 export const LeftContainer = styled.div`
+
+`;
+
+export const RightContainer = styled.div`
 
 `;

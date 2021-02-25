@@ -5,12 +5,15 @@ import ExperienceBar from '../components/ExperienceBar';
 
 import * as S from '../styles/pages/Home';
 import Profile from '../components/Profile';
+import CompletedChallenges from '../components/CompletedChallenges';
+import Countdown from '../components/Countdown';
+import ChallengerBox from '../components/ChallengerBox';
 
 const Home: React.FC = () => {
   return (
     <div>
       <Head>
-        <title>Move It</title>
+        <title>Inicio | move.it</title>
       </Head>
 
       <main>
@@ -20,8 +23,12 @@ const Home: React.FC = () => {
           <section>
             <S.LeftContainer>
               <Profile />
+              <CompletedChallenges />
+              <Countdown />
             </S.LeftContainer>
-            <div />
+            <S.RightContainer>
+              <ChallengerBox />
+            </S.RightContainer>
           </section>
         </S.Container>
       </main>

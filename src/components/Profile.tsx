@@ -1,16 +1,21 @@
 import React from 'react';
 
+import LevelIcon from '../assets/icons/level.svg';
+
 import * as S from '../styles/components/Profile';
 
 const Profile: React.FC = () => {
   return (
-    <div>
-      <img src="https://github.com/GBShadow/GBShadow.png" alt="Imagem de perfil" />
+    <S.Container>
+      <img src="https://github.com/GBShadow.png" alt="Imagem de perfil" />
       <div>
         <strong>Gustavo Sombra</strong>
-        <p>Level 1</p>
+        <p>
+          <LevelIcon />
+          Level 1
+        </p>
       </div>
-    </div>
+    </S.Container>
   );
 };
 
